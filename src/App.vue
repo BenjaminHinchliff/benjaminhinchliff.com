@@ -1,17 +1,73 @@
 <template>
   <div id="app">
     <div id="intro">
-      <h1 id="name">Benjamin Hinchliff</h1>
-      <p id="blerb">
-        A skilled self-taught programmer with professional development
-        experience; coding community leader, assisting at local elementary and
-        middle school classes and camps and running self-founded high school
-        coding club; long active with presiding and participating in many
-        neighborhood activities through BSA Scouts.
-      </p>
+      <div id="header">
+        <h1 id="name">Benjamin Hinchliff</h1>
+        <p id="blerb">
+          A skilled self-taught programmer with professional development
+          experience; coding community leader, assisting at local elementary and
+          middle school classes and camps and running self-founded high school
+          coding club; long active with presiding and participating in many
+          neighborhood activities through BSA Scouts.
+        </p>
+      </div>
+      <div id="portrait-wrapper">
+        <img src="./assets/self.png" class="flex-img" id="portrait" />
+      </div>
     </div>
     <div id="content">
-      <img src="./assets/self.png" id="portrait" />
+      <h2>Projects</h2>
+      <div id="projects">
+        <div class="project">
+          <h5>Assembling Orange Sphere</h5>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+        <div class="project">
+          <h5>Assembling Orange Sphere</h5>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+        <div class="project">
+          <h5>Assembling Orange Sphere</h5>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+        <div class="project">
+          <h5>Assembling Orange Sphere</h5>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+        <div class="project">
+          <h5>Assembling Orange Sphere</h5>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+        <div class="project">
+          <h5>Assembling Orange Sphere</h5>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+        <div class="project">
+          <h5>Assembling Orange Sphere</h5>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -34,45 +90,92 @@ body {
 
 html {
   font-family: "Montserrat", sans-serif;
+  background-color: #356286;
 }
 
 h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 p {
   color: white;
 }
 
-h1 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-transform: lowercase;
   font-family: "Major Mono Display", monospace;
 }
 
+h2 {
+  text-align: center;
+  font-size: 2.25em;
+}
+
 #intro {
+  display: flex;
+  background-color: #104570;
+}
+
+#header {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  height: 40vh;
   overflow: auto;
-  background: radial-gradient(#356286 50%, #104570);
-  // background-image: url("assets/code.png");
-  // background-blend-mode: multiply;
+  background: radial-gradient(#356286 30%, #104570);
 }
 
 #name {
+  text-align: center;
   text-transform: lowercase;
-  font-size: 5em;
+  font-size: 4em;
   font-weight: normal;
-  margin: 0;
+  margin: 2% 0;
 }
 
 #blerb {
-  margin: 3% 10%;
-  font-size: 1.5em;
+  margin: 1% 5%;
+  font-size: 1.25em;
   font-weight: 300;
   text-align: center;
 }
 
+#content {
+  background: linear-gradient(#104570, #356286);
+  overflow: auto;
+}
+
+#portrait-wrapper {
+  flex: 1 1 15%;
+}
+
 #portrait {
-  width: 30%;
+  width: 100%;
+  height: auto;
+}
+
+#projects {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  flex: 1 1 70%;
+}
+
+.project {
+  padding: 0.5%;
+  margin: 0.5%;
+  background-color: #3f698b;
+  border-radius: 5px;
+  flex: 0 1 11em;
 }
 </style>
