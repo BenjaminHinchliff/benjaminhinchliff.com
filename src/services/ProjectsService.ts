@@ -3,25 +3,17 @@ import Project from "../interfaces/Project";
 import Service from "../interfaces/Service";
 
 export default class ProjectsService implements Service<Project[]> {
-  async get(num: number): Promise<Project[]> {
-    let projects: Project[];
-    if (num !== -1 && num <= 100) {
-      const res = await axios.get<Project[]>(
-        `https://api.github.com/users/BenjaminHinchliff/repos?per_page=${num}`
-      );
-      projects = res.data;
-    } else {
-      let res = await axios.get<Project[]>(
-        "https://api.github.com/users/BenjaminHinchliff/repos?per_page=100"
-      );
-      projects = res.data;
-      if (res.headers.next) {
-        let links = this.parseLinks(res.headers.link);
-        while (links.next) {
-          res = await axios.get<Project[]>(links.next);
-          projects.push(...res.data);
-          links = this.parseLinks(res.headers.link);
-        }
+  async get(): Promise<Project[]> {
+    let res = await axios.get<Project[]>(
+      "https://api.githb.com/users/BenjaminHinchliff/repos?per_page=100"
+    );
+    const projects: Project[] = res.data;
+    if (res.headers.next) {
+      let links = this.parseLinks(res.headers.link);
+      while (links.next) {
+        res = await axios.get<Project[]>(links.next);
+        projects.push(...res.data);
+        links = this.parseLinks(res.headers.link);
       }
     }
     return projects.map(project => {

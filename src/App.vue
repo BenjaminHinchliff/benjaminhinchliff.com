@@ -15,8 +15,19 @@
     </div>
     <div id="content">
       <h2>Projects</h2>
-      <projects :projects="projects" />
+      <template v-if="errored">
+        <p class="error text-center">
+          Something went wrong while trying to load the projects.
+        </p>
+      </template>
+      <template v-else>
+        <div v-if="loading">Loading...</div>
+        <projects v-else :projects="projects" />
+      </template>
     </div>
+    <p id="copyright" class="muted text-center">
+      Copyright (&copy;) 2020 Benjamin Hinchliff
+    </p>
   </div>
 </template>
 
@@ -24,66 +35,8 @@
 import { defineComponent } from "vue";
 
 import Projects from "./components/Projects.vue";
+import ProjectsService from "./services/ProjectsService";
 import ProjectInterface from "./interfaces/Project";
-
-const test: ProjectInterface[] = [
-  {
-    id: 0,
-    name: "Assembling Orange Sphere",
-    htmlUrl: "https://benjaminhinchliff.com/",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-  },
-  {
-    id: 1,
-    name: "Assembling Orange Sphere",
-    htmlUrl: "https://benjaminhinchliff.com/",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-  },
-  {
-    id: 2,
-    name: "Assembling Orange Sphere",
-    htmlUrl: "https://benjaminhinchliff.com/",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-  },
-  {
-    id: 3,
-    name: "Assembling Orange Sphere",
-    htmlUrl: "https://benjaminhinchliff.com/",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-  },
-  {
-    id: 4,
-    name: "Assembling Orange Sphere",
-    htmlUrl: "https://benjaminhinchliff.com/",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-  },
-  {
-    id: 5,
-    name: "Assembling Orange Sphere",
-    htmlUrl: "https://benjaminhinchliff.com/",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-  },
-  {
-    id: 6,
-    name: "Assembling Orange Sphere",
-    htmlUrl: "https://benjaminhinchliff.com/",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-  },
-  {
-    id: 6,
-    name: "Assembling Orange Sphere",
-    htmlUrl: "https://benjaminhinchliff.com/",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-  }
-];
 
 export default defineComponent({
   name: "App",
@@ -92,8 +45,20 @@ export default defineComponent({
   },
   data: () => {
     return {
-      projects: test
+      projects: [] as ProjectInterface[],
+      loading: true,
+      errored: false
     };
+  },
+  mounted() {
+    new ProjectsService()
+      .get()
+      .then(projects => (this.projects = projects))
+      .catch(error => {
+        console.error(error);
+        this.errored = true;
+      })
+      .finally(() => (this.loading = false));
   }
 });
 </script>
@@ -134,6 +99,18 @@ h6 {
 h2 {
   text-align: center;
   font-size: 2.25em;
+}
+
+.muted {
+  color: #d6d6d6;
+}
+
+.error {
+  color: #ff4d40;
+}
+
+.text-center {
+  text-align: center;
 }
 
 #intro {
