@@ -11,9 +11,7 @@
           neighborhood activities through BSA Scouts.
         </p>
       </div>
-      <div id="portrait-wrapper">
-        <img src="./assets/self.png" class="flex-img" id="portrait" />
-      </div>
+      <img src="./assets/self.png" class="flex-img" id="portrait" />
     </div>
     <div id="content">
       <h2>Projects</h2>
@@ -120,6 +118,8 @@ h2 {
 
 #intro {
   display: flex;
+  flex-wrap: wrap;
+  width: 100%;
   background-color: #104570;
 }
 
@@ -128,8 +128,8 @@ h2 {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 100%;
   overflow: auto;
+  flex: 5 1 30em;
   background: radial-gradient(#356286 30%, #104570);
 }
 
@@ -153,13 +153,11 @@ h2 {
   overflow: auto;
 }
 
-#portrait-wrapper {
-  flex: 1 1 15%;
-}
-
 #portrait {
-  width: 100%;
-  height: auto;
+  flex: 1 0 auto;
+  width: 10em;
+  height: 25em;
+  object-fit: cover;
 }
 
 #projects {
@@ -176,6 +174,6 @@ h2 {
   margin: 0.5%;
   background-color: #3f698b;
   border-radius: 5px;
-  flex: 0 1 11em;
+  flex: 1 1 15em;
 }
 </style>
