@@ -15,57 +15,7 @@
     </div>
     <div id="content">
       <h2>Projects</h2>
-      <div id="projects">
-        <div class="project">
-          <h5>Assembling Orange Sphere</h5>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-        </div>
-        <div class="project">
-          <h5>Assembling Orange Sphere</h5>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-        </div>
-        <div class="project">
-          <h5>Assembling Orange Sphere</h5>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-        </div>
-        <div class="project">
-          <h5>Assembling Orange Sphere</h5>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-        </div>
-        <div class="project">
-          <h5>Assembling Orange Sphere</h5>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-        </div>
-        <div class="project">
-          <h5>Assembling Orange Sphere</h5>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-        </div>
-        <div class="project">
-          <h5>Assembling Orange Sphere</h5>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-        </div>
-      </div>
+      <projects :projects="projects" />
     </div>
   </div>
 </template>
@@ -73,8 +23,78 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
+import Projects from "./components/Projects.vue";
+import ProjectInterface from "./interfaces/Project";
+
+const test: ProjectInterface[] = [
+  {
+    id: 0,
+    name: "Assembling Orange Sphere",
+    htmlUrl: "https://benjaminhinchliff.com/",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  {
+    id: 1,
+    name: "Assembling Orange Sphere",
+    htmlUrl: "https://benjaminhinchliff.com/",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  {
+    id: 2,
+    name: "Assembling Orange Sphere",
+    htmlUrl: "https://benjaminhinchliff.com/",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  {
+    id: 3,
+    name: "Assembling Orange Sphere",
+    htmlUrl: "https://benjaminhinchliff.com/",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  {
+    id: 4,
+    name: "Assembling Orange Sphere",
+    htmlUrl: "https://benjaminhinchliff.com/",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  {
+    id: 5,
+    name: "Assembling Orange Sphere",
+    htmlUrl: "https://benjaminhinchliff.com/",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  {
+    id: 6,
+    name: "Assembling Orange Sphere",
+    htmlUrl: "https://benjaminhinchliff.com/",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  },
+  {
+    id: 6,
+    name: "Assembling Orange Sphere",
+    htmlUrl: "https://benjaminhinchliff.com/",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  }
+];
+
 export default defineComponent({
-  name: "App"
+  name: "App",
+  components: {
+    Projects
+  },
+  data: () => {
+    return {
+      projects: test
+    };
+  }
 });
 </script>
 
@@ -158,22 +178,5 @@ h2 {
   width: 10em;
   height: 25em;
   object-fit: cover;
-}
-
-#projects {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-content: flex-start;
-  flex: 1 1 70%;
-}
-
-.project {
-  padding: 0.5%;
-  margin: 0.5%;
-  background-color: #3f698b;
-  border-radius: 5px;
-  flex: 1 1 15em;
 }
 </style>
