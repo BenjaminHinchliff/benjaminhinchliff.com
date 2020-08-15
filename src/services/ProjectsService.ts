@@ -22,6 +22,8 @@ export default class ProjectsService implements Service<Project[]> {
       delete project["html_url"];
       delete project["created_at"];
       return project;
+    }).sort((a, b) => {
+      return new Date(b.createdAt as string).getTime() - new Date(a.createdAt as string).getTime();
     });
   }
 
