@@ -5,7 +5,7 @@ import Service from "../interfaces/Service";
 export default class ProjectsService implements Service<Project[]> {
   async get(): Promise<Project[]> {
     let res = await axios.get<Project[]>(
-      "https://api.githb.com/users/BenjaminHinchliff/repos?per_page=100"
+      "https://api.github.com/users/BenjaminHinchliff/repos?per_page=100"
     );
     const projects: Project[] = res.data;
     if (res.headers.next) {

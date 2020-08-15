@@ -21,7 +21,7 @@
         </p>
       </template>
       <template v-else>
-        <div v-if="loading">Loading...</div>
+        <div class="loader" v-if="loading"></div>
         <projects v-else :projects="projects" />
       </template>
     </div>
@@ -111,6 +111,30 @@ h2 {
 
 .text-center {
   text-align: center;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  &::after {
+    border: 4px solid #818181;
+    border-top: 4px solid #ffffff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    content: "";
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 #intro {
