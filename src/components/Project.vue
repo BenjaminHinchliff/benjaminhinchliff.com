@@ -35,8 +35,4 @@ export default defineComponent({
 .description {
   margin: 0.5em 0;
 }
-
-.description {
-  
-}
 </style>
