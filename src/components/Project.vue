@@ -1,6 +1,6 @@
 <template>
   <a class="project" :href="url" rel="noopener noreferrer" target="_blank">
-    <h5 class="name">{{ name }}</h5>
+    <h5 class="name">{{ normalizeName(name) }}</h5>
     <h6 class="date">{{ timeCreated.toLocaleDateString() }}</h6>
     <p class="description">{{ description || "(no description)" }}</p>
   </a>
@@ -16,6 +16,11 @@ export default defineComponent({
     description: String,
     timeCreated: Date,
     url: String
+  },
+  methods: {
+    normalizeName(name: string): string {
+      return name.replace(/[_-]/g, " ").replace(/([a-z])([A-Z])/g, "$1 $2");
+    }
   }
 });
 </script>
