@@ -2,7 +2,7 @@
   <div id="app">
     <div id="intro">
       <div id="header">
-        <h1 id="name">Benjamin Hinchliff</h1>
+        <h1>Benjamin Hinchliff</h1>
         <p id="blerb">
           A skilled self-taught programmer with professional development
           experience; coding community leader, assisting at local elementary and
@@ -74,6 +74,14 @@ body {
 html {
   font-family: "Montserrat", sans-serif;
   background-color: #356286;
+}
+
+h1 {
+  text-align: center;
+  text-transform: lowercase;
+  font-size: 3em;
+  font-weight: normal;
+  margin: 2% 0;
 }
 
 h1,
@@ -154,14 +162,6 @@ h2 {
   background: radial-gradient(#356286 30%, #104570);
 }
 
-#name {
-  text-align: center;
-  text-transform: lowercase;
-  font-size: 4em;
-  font-weight: normal;
-  margin: 2% 0;
-}
-
 #blerb {
   margin: 1% 5%;
   font-size: 1.25em;
@@ -179,5 +179,11 @@ h2 {
   width: 10em;
   height: 25em;
   object-fit: cover;
+}
+
+@media only screen and (min-width: 425px) {
+  h1 {
+    font-size: 4em;
+  }
 }
 </style>
