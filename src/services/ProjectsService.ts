@@ -16,15 +16,20 @@ export default class ProjectsService implements Service<Project[]> {
         links = this.parseLinks(res.headers.link);
       }
     }
-    return projects.map(project => {
-      project.htmlUrl = project["html_url"] as string;
-      project.createdAt = project["created_at"] as string;
-      delete project["html_url"];
-      delete project["created_at"];
-      return project;
-    }).sort((a, b) => {
-      return new Date(b.createdAt as string).getTime() - new Date(a.createdAt as string).getTime();
-    });
+    return projects
+      .map(project => {
+        project.htmlUrl = project["html_url"] as string;
+        project.createdAt = project["created_at"] as string;
+        delete project["html_url"];
+        delete project["created_at"];
+        return project;
+      })
+      .sort((a, b) => {
+        return (
+          new Date(b.createdAt as string).getTime() -
+          new Date(a.createdAt as string).getTime()
+        );
+      });
   }
 
   private parseLinks(data: string): { [key: string]: string } {
