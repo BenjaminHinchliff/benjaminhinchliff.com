@@ -11,7 +11,7 @@
           neighborhood activities through BSA Scouts.
         </p>
       </div>
-      <img src="./assets/self.png" class="flex-img" id="portrait" />
+      <img src="./assets/self.jpeg" class="flex-img" id="portrait" />
     </div>
     <div id="content">
       <h2 id="projects-header" class="text-center">Projects</h2>
