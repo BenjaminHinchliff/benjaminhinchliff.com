@@ -14,7 +14,10 @@
       <img src="./assets/self.png" class="flex-img" id="portrait" />
     </div>
     <div id="content">
-      <h2>Projects</h2>
+      <h2 id="projects-header" class="text-center">Projects</h2>
+      <p id="projects-subheader" class="text-center muted">
+        (more recent years)
+      </p>
       <template v-if="errored">
         <p class="error text-center">
           Something went wrong while trying to load the projects.
@@ -91,6 +94,15 @@ export default defineComponent({
 #content {
   background: linear-gradient(#104570, #356286);
   overflow: auto;
+}
+
+#projects-header {
+  font-size: 2.25em;
+  margin: 0.2em 0;
+}
+
+#projects-subheader {
+  margin-top: 0.1em;
 }
 
 #portrait {
