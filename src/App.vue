@@ -57,8 +57,7 @@ export default defineComponent({
     new ProjectsService()
       .get()
       .then(projects => (this.projects = projects))
-      .catch(error => {
-        console.error(error);
+      .catch(() => {
         this.errored = true;
       })
       .finally(() => (this.loading = false));
