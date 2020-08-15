@@ -1,10 +1,12 @@
 <template>
   <div class="projects">
     <project
-      v-for="{ id, name, description } in projects"
+      v-for="{ id, name, description, createdAt, htmlUrl } in projects"
       :key="id"
       :name="name"
       :description="description"
+      :timeCreated="new Date(createdAt)"
+      :url="htmlUrl"
     />
   </div>
 </template>
