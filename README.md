@@ -4,4 +4,4 @@ this is the source code for my website [benjaminhinchliff.com](https://benjaminh
 
 # Compilation from source
 
-this is a fairly standard Vue CLI website with NPM as its package manager, so just use `npm install` and check the package.json for the commands. Deployment is handled with Github actions. 
+this is a fairly standard Vue CLI website with NPM as its package manager, so just use `npm install` and check the package.json for the commands. Deployment is handled with Github actions.
