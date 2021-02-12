@@ -1,7 +1,7 @@
 <template>
   <a class="project" :href="url" rel="noopener noreferrer" target="_blank">
-    <h5 class="name">{{ normalizeName(name) }}</h5>
-    <h6 class="date">{{ timeCreated.toLocaleDateString() }}</h6>
+    <h3 class="name">{{ normalizeName(name) }}</h3>
+    <h4 class="date">{{ timeCreated.toLocaleDateString() }}</h4>
     <p class="description">{{ description || "(no description)" }}</p>
   </a>
 </template>
@@ -33,6 +33,14 @@ export default defineComponent({
   background-color: #3f698b;
   border-radius: 5px;
   flex: 1 1 15em;
+}
+
+.name {
+  font-size: 0.83em;
+}
+
+.date {
+  font-size: 0.67em;
 }
 
 .date,
