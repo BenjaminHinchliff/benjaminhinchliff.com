@@ -16,6 +16,8 @@
         class="flex-img"
         id="portrait"
         alt="portrait of benjamin"
+        width="400"
+        height="640"
       />
     </div>
     <div id="content">
